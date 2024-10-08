@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, RetrieveAPIView, UpdateAPIView, DestroyAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from .models import Settings
 from .serializers import *
@@ -9,7 +9,7 @@ class SettingsCreateAPI(CreateAPIView):
     queryset = Settings.objects.all()
     serializer_class = SettingsCreateSerializer
 
-class SettingsAPIView(ListAPIView):
+class SettingsAPIView(ListCreateAPIView):
     # "queryset - передача объектов"
     queryset = Settings.objects.all()
     serializer_class = SettingsSerializer
