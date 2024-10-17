@@ -38,12 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # rest
+    # drf
     'rest_framework',
+    'drf_yasg',
 
     # apps
     'apps.base',
     'apps.news',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,5 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = "users.User"
