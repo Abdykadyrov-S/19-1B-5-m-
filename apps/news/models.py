@@ -1,4 +1,5 @@
 from django.db import models
+from apps.users.models import User
 
 # Create your models here.
 class CategoryNews(models.Model):
@@ -14,6 +15,7 @@ class CategoryNews(models.Model):
 
 class News(models.Model):
     category = models.ManyToManyField(CategoryNews,  null=True, blank=True, related_name="category_news")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_news")
     image = models.ImageField(upload_to="news_images/", null=True, blank=True)
     title = models.CharField(max_length=155, verbose_name="Заголовок")
     description = models.TextField(verbose_name="Описание", default="Описание")
